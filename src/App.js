@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { Provider } from 'react-redux';
+import TextAdder from './TextAdder';
+import TextDisplay from './TextDisplay';
+import Counter from './Counter'; // Импортируйте Counter
+import store from './store';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div>
+        <h1>Добавление текста с использованием React и Redux</h1>
+        <TextAdder />
+        <TextDisplay />
+        <Counter /> {/* Добавьте компонент Counter */}
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
